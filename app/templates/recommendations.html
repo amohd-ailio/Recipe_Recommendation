@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Top three recommendations</title>
+  </head>
+
+  <body>
+    
+    <div class="container">
+    <h1>Entered ingredients: </h1>
+    {% for item in ingredients_list %}
+          <tr>
+            <p> - {{item}}</p></tr>
+          </tr>
+      {% endfor %}
+
+    <h1>Top recommendations: </h1>
+
+      <form action="/submit/SelectedRecommendation" method="post">
+
+        <div class="form-group">
+          <input type="radio" name="selected_recommendation" value="0" /> 1. {{rec_names[0]}} <br>
+          Ingredients: {{rec_ingredients[0]}} <br>
+        </div>
+        <br>
+        
+        <div class="form-group">
+          <input type="radio" name="selected_recommendation" value="1" /> 2. {{rec_names[1]}}  <br>
+          Ingredients: {{rec_ingredients[1]}} <br>
+        </div>
+        <br>
+        
+        <div class="form-group">
+          <input type="radio" name="selected_recommendation" value="2" /> 3. {{rec_names[2]}}  <br>
+          Ingredients: {{rec_ingredients[2]}} <br>
+        </div>
+        <br>
+
+      <h3>Select your preferred recipe and click "Show complete recipe" </h3>
+        <input type="submit" value="Show complete recipe" class="btn" />
+      </form>
+
+    </div>
+    
+    
+
+    </dic>
+
+
+  </body>
+</html>

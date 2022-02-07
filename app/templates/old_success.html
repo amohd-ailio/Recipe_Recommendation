@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Thank You!</title>
+  </head>
+
+  <body>
+    
+    <div class="container">
+    <h1>Entered ingredients: </h1>
+    {% if message %}
+    <p class="message">{{ ingredients_list | safe }}</p>
+    {% endif %}
+
+
+      <h1>Your top recommended recipes: </h1>
+      <h2 style="color:red;">{{ recipe_name | safe }}</h2>
+      
+      
+      <img class="logo" src= {{ recipe_image | safe }}>
+      
+      
+      
+      
+      <h2 style="color:green;">Ingredients needed: </h2>
+      {% for item in recipe_ingredients %}
+          <tr>
+            <p>{{item}}</p></tr>
+          </tr>
+      {% endfor %}
+      
+      <br> <br>
+
+      <h2 style="color:blue;">Cooking steps:</h2>
+      
+      {% for item in recipe_steps %}
+          <tr>
+            <p>{{item}}</p></tr><br>
+          </tr>
+      {% endfor %}
+
+      <h2>Thank you for choosing our app! Hope to see you again!</h2>
+      <img src="static/What-to-cook.png" class="logo">
+
+    </div>
+
+
+    <dic class="container">
+      <form action="/follow_up" method="post">
+        <div class="form-group">
+            <h3>Something Button?</h3>
+            <input type="text" name="customer" id="" placeholder="Name of cook">
+        </div>
+        <input type="submit" value="submit" class="btn" />
+    </form>
+    </dic>
+
+
+  </body>
+</html>

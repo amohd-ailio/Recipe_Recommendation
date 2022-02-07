@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>SelectedRecommendation</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Your selected recipe: </h1>
+        <h2 style="color:red;">{{ recipe_name | safe }}</h2>
+
+        <img class="logo" src= {{ recipe_image | safe }}>
+
+        <h2 style="color:green;">Ingredients needed: </h2>
+        {% for item in recipe_ingredients %}
+            <tr>
+                <p>{{item}}</p></tr>
+            </tr>
+        {% endfor %}
+        
+        <br> <br>
+
+        <h2 style="color:blue;">Cooking steps:</h2>
+        
+        {% for item in recipe_steps %}
+            <tr>
+                <p>{{item}}</p></tr><br>
+            </tr>
+        {% endfor %}
+
+        <h2>Thank you for choosing our app</h2>
+        <img src="/static/What-to-cook.png" class="logo">
+        <h2>Hope to see you again!</h2>
+
+        <br>
+        <br>
+        <br>
+
+
+        <form action="/submit/SelectedRecommendation/ThankYou" method="post">
+            <h2>Do you have feedback for us?</h2>
+
+            <div class="form-group">
+                <h3>Comments</h3>
+                <textarea name="comments" id="" cols="30" rows="10"
+                    placeholder="Insert comments about the recommendations and the usability of the app."></textarea>
+            </div>
+
+            <h3>How would you rate the app?</h3>
+            <input type="radio" name="app_rating" value="0" /> 0
+            <input type="radio" name="app_rating" value="1" /> 1
+            <input type="radio" name="app_rating" value="2" /> 2
+            <input type="radio" name="app_rating" value="3" /> 3
+            <input type="radio" name="app_rating" value="4" /> 4
+
+            <br>
+
+            <input type="submit" value="Give feedback" class="btn" />
+
+        </form>
+        
+
+        
+
+    </div>
+</body>
+
+</html>
